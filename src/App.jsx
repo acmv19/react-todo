@@ -4,9 +4,9 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 
 const todoList = [
-  { objectId: 1, title: "complete assigment" },
-  { objectId: 2, title: "gocery shoping" },
-  { objectId: 3, title: "payments-rent-utilities" },
+  { id: 1, title: "complete assigment" },
+  { id: 2, title: "gocery shoping" },
+  { id: 3, title: "payments-rent-utilities" },
 ];
 
 {
@@ -16,8 +16,8 @@ const todoList = [
 function ToDoList() {
   return (
     <ul>
-      {todoList.map(function (item) {
-        return <li key={item.objectId}>{item.title}</li>;
+      {todoList.map((item) => {
+        return <li key={item.id}>{item.title}</li>;
       })}
     </ul>
   );
