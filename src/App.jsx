@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+const todoList = [
+  { objectId: 1, title: "complete assigment" },
+  { objectId: 2, title: "gocery shoping" },
+  { objectId: 3, title: "payments-rent-utilities" },
+];
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+{
+  /* firts component  */
 }
 
-export default App
+function ToDoList() {
+  return (
+    <ul>
+      {todoList.map(function (item) {
+        return <li key={item.objectId}>{item.title}</li>;
+      })}
+    </ul>
+  );
+}
+
+function App() {
+  return (
+    <di>
+      <hi> To Do List</hi>
+      <br />
+
+      <label htmlFor="search"> search: </label>
+      <input id="search" type="text" />
+      <br />
+
+      <ToDoList />
+    </di>
+  );
+}
+
+export default App;
