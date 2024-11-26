@@ -1,17 +1,7 @@
 import React from "react";
 import TodoListItem from "./TodoListItem";
 
-const todoList = [
-  { id: 1, title: "complete assignment" },
-  { id: 2, title: "grocery shoping" },
-  { id: 3, title: "payments-rent-utilities" },
-];
-
-{
-  /* firts component  */
-}
-
-function TodoList() {
+function TodoList({ todoList }) {
   return (
     <ul>
       {todoList.map((item) => {

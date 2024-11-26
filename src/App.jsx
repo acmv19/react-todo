@@ -6,14 +6,17 @@ import AddTodoForm from "./AddTodoForm";
 
 function App() {
   const [newTodo, setNewTodo] = React.useState("");
+  const [todoList, setTodoList] = useState([]);
+  const addTodo = (newTodo) => {
+    setTodoList([...todoList, newTodo]);
+  };
   return (
     <div>
       <h1> To Do List</h1>
       <br />
-      <AddTodoForm onAddTodo={setNewTodo} />
-      <p>value of the varable newTodo {newTodo}</p>
+      <AddTodoForm onAddTodo={addTodo} />
       <br />
-      <TodoList />
+      <TodoList todoList={todoList} />
     </div>
   );
 }
