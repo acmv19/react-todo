@@ -3,9 +3,12 @@ import reactLogo from "./assets/react.svg";
 import React from "react";
 import TodoList from "./TodoList";
 import AddTodoForm from "./AddTodoForm";
+import { use } from "react";
 
-const useSemiPersistentState = () => {
-  const [todoList, setTodoList] = useState(() => {
+function App() {
+  const [newTodo, setNewTodo] = React.useState("");
+
+  /* const [todoList, setTodoList] = useState(() => {
     const savedTodoList = localStorage.getItem("savedTodoList");
     let initialTodoList = [];
     if (savedTodoList) {
@@ -17,18 +20,43 @@ const useSemiPersistentState = () => {
       }
     }
     return initialTodoList;
-  });
+  });*/
+  const [todoList, setTodoList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem("savedTodoList", JSON.stringify(todoList));
-  }, [todoList]);
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const savedTodoList = localStorage.getItem("savedTodoList");
 
-  return [todoList, setTodoList];
-};
+        if (savedTodoList) {
+          try {
+            const data = JSON.parse(savedTodoList);
+            resolve({ data: { todoList: data } });
+          } catch (error) {
+            reject(new Error("error  parsing data localStorage"));
+          }
+        } else {
+          reject(new Error("No todoList found in localStorage"));
+        }
+      }, 2000);
+    })
+      .then((result) => {
+        setTodoList(result.data.todoList);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setIsError(true);
+        setIsLoading(false);
+      });
+  }, []);
 
-function App() {
-  const [newTodo, setNewTodo] = React.useState("");
-  const [todoList, setTodoList] = useSemiPersistentState();
+  useEffect(() => {
+    if (!isLoading) {
+      localStorage.setItem("savedTodoList", JSON.stringify(todoList));
+    }
+  }, [todoList, isLoading]);
 
   const addTodo = (newTodo) => {
     setTodoList([...todoList, newTodo]);
@@ -47,7 +75,14 @@ function App() {
       <br />
       <AddTodoForm onAddTodo={addTodo} />
       <br />
-      <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          <br />
+          <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+        </>
+      )}
     </>
   );
 }
