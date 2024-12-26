@@ -8,19 +8,6 @@ import { use } from "react";
 function App() {
   const [newTodo, setNewTodo] = React.useState("");
 
-  /* const [todoList, setTodoList] = useState(() => {
-    const savedTodoList = localStorage.getItem("savedTodoList");
-    let initialTodoList = [];
-    if (savedTodoList) {
-      try {
-        initialTodoList = JSON.parse(savedTodoList);
-      } catch (error) {
-        console.error("error parsing todo list from localStorage:", error);
-        initialTodoList = [];
-      }
-    }
-    return initialTodoList;
-  });*/
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
