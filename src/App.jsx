@@ -29,7 +29,6 @@ function App() {
         throw new Error(`Error: ${response.status}`);
       }
       const data = await response.json();
-      console.log(data);
 
       const todos = data.records.map((record) => {
         const newTodo = {
@@ -78,7 +77,6 @@ function App() {
       const response = await fetch(url, options);
       if (!response.ok) {
         const errorDetails = await response.json();
-        console.error("Detalles del error:", errorDetails);
         const message = `Error has occurred: ${response.status}`;
         throw new Error(message);
       }
