@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import React from "react";
-import TodoList from "./TodoList";
-import AddTodoForm from "./AddTodoForm";
+import TodoList from "./components/TodoList/TodoList";
+import AddTodoForm from "./components/AddTodoForm/AddTodoForm";
 import { use } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Footer from "./components/footer";
+import Footer from "./components/footer/footer";
 
 function App() {
   const [newTodo, setNewTodo] = React.useState("");
@@ -135,7 +135,7 @@ function App() {
               <AddTodoForm onAddTodo={addTodo} />
               <br />
               {isLoading ? (
-                <p>Loading...</p>
+                <p className="loadingTex">Loading...</p>
               ) : (
                 <>
                   <br />

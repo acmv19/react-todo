@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-
+import styles from "./ImputWithLabel.module.css";
 // my firts reusable component
 
 const InputWithLabel = (props) => {
@@ -13,6 +13,7 @@ const InputWithLabel = (props) => {
     <>
       <label htmlFor={props.id}> {props.children} </label>
       <input
+        className={styles.InputWithLabel}
         name={props.name}
         id={props.id}
         type="text"

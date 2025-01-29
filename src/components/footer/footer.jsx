@@ -1,11 +1,11 @@
 import React from "react";
-
+import styles from "./footer.module.css";
 const Footer = () => {
   const today = new Date();
   const thisYear = today.getFullYear();
 
   return (
-    <footer style={{ textAlign: "center", padding: "10px 0" }}>
+    <footer className={styles.footer}>
       <p>&copy; Anamaria Maldonado {thisYear}</p>
     </footer>
   );
