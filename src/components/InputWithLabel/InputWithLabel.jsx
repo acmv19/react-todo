@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import styles from "./ImputWithLabel.module.css";
+import PropTypes from "prop-types";
 // my firts reusable component
 
 const InputWithLabel = (props) => {
@@ -24,6 +25,16 @@ const InputWithLabel = (props) => {
       />
     </>
   );
+};
+
+InputWithLabel.propTypes = {
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  required: PropTypes.bool,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export { InputWithLabel };
