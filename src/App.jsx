@@ -6,6 +6,8 @@ import AddTodoForm from "./components/AddTodoForm/AddTodoForm";
 import { use } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "./components/footer/footer";
+import Navbar from "./components/Navbar/Navbar";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 function App() {
   const [newTodo, setNewTodo] = React.useState("");
@@ -129,7 +131,16 @@ function App() {
         <Route
           path="/"
           element={
+            <div>
+              <Navbar />
+            </div>
+          }
+        />
+        <Route
+          path="/todo"
+          element={
             <>
+              <Sidebar />
               <h1> To Do List</h1>
               <br />
               <AddTodoForm onAddTodo={addTodo} />
@@ -149,6 +160,7 @@ function App() {
           path="/new"
           element={
             <>
+              <Sidebar />
               <h1>New Todo List</h1>
             </>
           }

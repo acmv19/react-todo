@@ -1,6 +1,7 @@
 import React from "react";
 import { InputWithLabel } from "../InputWithLabel/InputWithLabel";
 import styles from "./AddTodoForm.module.css";
+import PropTypes from "prop-types";
 
 function AddTodoForm({ onAddTodo }) {
   const [todoTitle, setTodoTitle] = React.useState("");
@@ -26,6 +27,7 @@ function AddTodoForm({ onAddTodo }) {
         <InputWithLabel
           className={styles.Input}
           id="todoTitle"
+          name="todo"
           type="text"
           required
           value={todoTitle}
@@ -41,5 +43,9 @@ function AddTodoForm({ onAddTodo }) {
     </form>
   );
 }
+
+AddTodoForm.proptypes = {
+  onAddTodo: PropTypes.func.isRequired,
+};
 
 export default AddTodoForm;
