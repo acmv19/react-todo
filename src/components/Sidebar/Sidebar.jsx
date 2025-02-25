@@ -35,6 +35,11 @@ function Sidebar() {
               New
             </Link>
           </li>
+          <li>
+            <Link to="/Motivation" onClick={toggleMenu}>
+              Motivation Video
+            </Link>
+          </li>
         </ul>
       </div>
     </>

@@ -12,6 +12,7 @@ import SortControl from "./components/SortButton/SortButton";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import TodoContainer from "./components/TodoContainer/TodoContainer";
+import MotivationVideo from "./components/MotivationVideo/MotivationVideo";
 
 function App() {
   return (
@@ -43,6 +44,15 @@ function App() {
                 <img src={reactLogo} alt="React Logo" className="logo" />
                 <h1>New Todo List</h1>
               </div>
+            </>
+          }
+        />
+        <Route
+          path="/motivation"
+          element={
+            <>
+              <Sidebar />
+              <MotivationVideo />
             </>
           }
         />
