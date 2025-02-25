@@ -8,18 +8,18 @@ const Footer = () => {
     {
       href: "mailto:anamariamaldonado1994@gmail.com?subject=hi%20there!",
       alt: "Email",
-      iconClass: "bi bi-envelope", // Icono de email de Bootstrap
+      iconClass: "bi bi-envelope",
       label: "anamariamaldonado1994@gmail.com",
     },
     {
       href: "https://github.com/acmv19",
       alt: "GitHub",
-      iconClass: "bi bi-github", // Icono de GitHub de Bootstrap
+      iconClass: "bi bi-github",
     },
     {
       href: "https://www.facebook.com/anamaria.maldonadovazquez1",
       alt: "Facebook",
-      iconClass: "bi bi-facebook", // Icono de Facebook de Bootstrap
+      iconClass: "bi bi-facebook",
     },
     {
       href: "https://www.instagram.com/anamariacmv/",
@@ -30,6 +30,20 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <p>&copy; Anamaria Maldonado {thisYear}</p>
+      <div className="d-flex justify-content-center gap-3">
+        {socialLinks.map((link, index) => (
+          <a
+            key={index}
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.iconLink}
+            aria-label={link.alt}
+          >
+            <i className={link.iconClass}></i>
+          </a>
+        ))}
+      </div>
     </footer>
   );
 };
