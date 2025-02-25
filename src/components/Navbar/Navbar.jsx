@@ -15,6 +15,9 @@ function Navbar() {
         <li>
           <Link to="/new">New</Link>
         </li>
+        <li>
+          <Link to="/motivation">Motivation video</Link>
+        </li>
       </ul>
     </nav>
   );
